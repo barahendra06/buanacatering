@@ -1,0 +1,577 @@
+/* SCHEDULE PAGES */
+.wrapper {
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-family: sans-serif;
+    color: #fff;
+}
+
+.carousel {
+    width: 90%;
+    margin: 0px auto;
+}
+
+.slick-slide {
+    /*width:auto;*/
+    width: 150px;
+    margin: 10px;
+    border: 2px solid #1057a5;
+}
+
+.slick-active {
+    /*border-color: #1057a5;*/
+}
+
+.slick-current {
+    /*background-color: #1057a5;
+      color: #ffffff;*/
+}
+
+.schedule {
+    font-family: "Montserrat";
+}
+
+.schedule .title {
+    font-size: 22px;
+    margin-bottom: 0;
+}
+
+.schedule .sub-title {
+    font-size: 14px;
+    color: #1057a5;
+    font-weight: 600;
+}
+
+.filter-field {
+    height: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    width: 100%
+}
+
+.my-btn {
+    background-color: #1057a5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+.main-date {
+    font-size: 20px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.home,
+.away {
+    font-size: 14px;
+    color: #1057a5;
+}
+
+.winner-score {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1057a5;
+}
+
+.loser-score {
+    font-size: 22px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.venue {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.schedule .time {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #1057a5;
+}
+
+.time-font-lg {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #1057a5;
+}
+
+.schedule .competition-type {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.schedule-list .team .logo {
+    width: 40px;
+    object-fit: scale-down;
+    height: 3rem;
+    margin-right: .1rem;
+}
+
+.box {
+    min-height: 150px;
+}
+
+.slick-current .calendar .date,
+.calendar:hover .date,
+.slick-current .calendar .games,
+.calendar:hover .games {
+    color: #1057a5;
+}
+
+.slick-current .calendar .day,
+.calendar:hover .day {
+    background-color: #1057a5;
+    color: #ffffff;
+}
+
+.date span {
+    font-size: 20px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.date .month {
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+}
+
+/*customize date carousel arrow style*/
+.slick-prev:before,
+.slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #1057a5 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.all-series-header-box {
+    background-color: #1057a5;
+    color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.all-series-header-box h4 {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+
+
+/*Match Tab*/
+
+#match-tab .tab {
+    /*padding: 0 5px;*/
+}
+
+#match-tab a {
+    /*
+      font-size: 14px;
+      line-height: 32px;
+      text-transform: uppercase;
+      border: 2px solid black;
+      width: 100%;
+      height: 50px;
+      border-radius: 0;
+      */
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19px;
+    text-transform: uppercase;
+    border: 2px solid #1057a5;
+    /* width: 100%; */
+    height: 34px;
+    border-radius: 0;
+
+}
+
+#match-tab a:hover,
+#match-tab .active-tab {
+    background-color: #1057a5;
+    color: #ffffff;
+}
+
+@media(min-width: 992px) {
+    .schedule .title {
+        font-size: 25px;
+        margin-bottom: 0;
+    }
+
+    .schedule .sub-title {
+        font-size: 20px;
+        color: #1057a5;
+        font-weight: 600;
+    }
+
+    .filter-field {
+        height: 30px;
+        font-size: 12px;
+        font-weight: 600;
+        width: 100%
+    }
+
+    .my-btn {
+        background-color: #1057a5;
+        color: white;
+        border: none;
+        cursor: pointer;
+        width: auto;
+    }
+
+    .main-date {
+        font-size: 30px;
+        color: #000000;
+        font-weight: 600;
+    }
+
+    .home,
+    .away {
+        font-size: 25px;
+        color: #1057a5;
+    }
+
+    .winner-score {
+        font-size: 26px;
+        font-weight: 600;
+        color: #1057a5;
+    }
+
+    .loser-score {
+        font-size: 26px;
+        font-weight: 600;
+        color: #000000;
+    }
+
+    .venue {
+        margin-top: 5px;
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 4px;
+    }
+
+    .schedule .time {
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 0;
+        color: #1057a5;
+    }
+
+    .schedule .competition-type {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .schedule-list .team .logo {
+        width: 150px;
+        margin-top: 20px;
+        object-fit: scale-down;
+        height:
+            /* 7rem */
+            150px;
+    }
+
+    .schedule-list .team {
+        padding-bottom: 15px;
+    }
+
+
+    .schedule-list .team .name {
+        font-size: 15px;
+        color: #1057a5;
+        font-weight: bold;
+    }
+
+
+    .box {
+        min-height: 150px;
+    }
+
+    .slick-current .calendar .date,
+    .calendar:hover .date,
+    .slick-current .calendar .games,
+    .calendar:hover .games {
+        color: #1057a5;
+    }
+
+    .slick-current .calendar .day,
+    .calendar:hover .day {
+        background-color: #1057a5;
+        color: #ffffff;
+    }
+
+    .date span {
+        font-size: 25px;
+        font-weight: 700;
+        display: inline-block;
+    }
+
+    .date .month {
+        font-size: 15px;
+        font-weight: 600;
+        display: block;
+    }
+
+    /*customize date carousel arrow style*/
+    .slick-prev:before,
+    .slick-next:before {
+        font-family: 'slick';
+        font-size: 20px;
+        line-height: 1;
+        opacity: .75;
+        color: #1057a5 !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    #match-tab .tab {
+        /*padding: 0 5px;*/
+    }
+
+    #match-tab a {
+        /*
+        line-height: 32px;
+        font-size: 26px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border: 2px solid #1057a5;
+        width: 100%;
+        height: 50px;
+        border-radius: 0;
+        */
+
+        line-height: 30px;
+        font-size: 24px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border: 2px solid #1057a5;
+        width: 100%;
+        height: 45px;
+        border-radius: 0;
+
+    }
+
+    #match-tab a:hover,
+    #match-tab .active-tab {
+        background-color: #1057a5;
+        color: #ffffff;
+    }
+
+    .all-series-header-box {
+        background-color: #1057a5;
+        color: #ffffff;
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+
+    .all-series-header-box h4 {
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+}
+
+/*----------------------------------------- Standing Page CSS -----------------------------------------*/
+
+/* Standing */
+
+.standing-header {
+    color: #002863;
+    font-size: 1.3em;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    margin-top: 40px
+}
+
+.standing-table {
+    font-family: Verdana, Geneva, sans-serif;
+    margin-bottom: 30px;
+    width: 100%;
+    /*
+    color: #2e2e2e;
+    background: #d3d3d3;
+    */
+}
+
+.standing-table-head {
+    background: #003f82;
+    font-weight: bold;
+    color: #fff;
+}
+
+.standing-table-head tr th {
+    text-align: center;
+    padding: 4px;
+    border: 1px solid #003f82;
+}
+
+/*even alternate table row color*/
+.standing-table tbody tr:nth-child(even) td {
+    background: #FFFFFF;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+}
+
+/*odd alternate table row color*/
+.standing-table tbody tr:nth-child(odd) td {
+    background: #e6e6e6;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+}
+
+
+/*
+.standing-group-name
+{
+    color: #002863;
+    font-size: 1em;
+}
+*/
+
+
+
+/*override jquery bracket css*/
+
+/*font related style*/
+div.jQBracket {
+    font-family: Arial;
+    font-size: 14px;
+    position: relative;
+    /*text-shadow: 1px 1px 8px #111;*/
+}
+
+/*each team box*/
+div.jQBracket .team {
+    position: relative;
+    z-index: 1;
+    float: left;
+    /*background-color: #444 !important;*/
+    background-color: #F2F2F2 !important;
+    cursor: default;
+    /*color: #fff !important;*/
+    color: #007bff !important;
+    /*border: 2px solid #1057a5 !important;*/
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    /*height: fit-content;*/
+}
+
+
+div.jQBracket .team:nth-child(odd) {
+    border: 2px solid #1057a5 !important;
+    /*background-color: #1057a5 !important;*/
+    /*color: #F2F2F2 !important;*/
+}
+
+div.jQBracket .team:nth-child(even) {
+    border-right: 2px solid #1057a5 !important;
+    border-bottom: 2px solid #1057a5 !important;
+    border-left: 2px solid #1057a5 !important;
+}
+
+div.jQBracket .team .win {
+    /*border: 2px solid #1057a5 !important;*/
+}
+
+div.jQBracket .team .lose {
+    /*border-top-style: none;*/
+
+}
+
+
+/*higlight color*/
+div.jQBracket .team.highlight {
+    /*background-color: #867033 !important;*/
+    /*background-color: #007bff !important;*/
+    background-color: #1057a5 !important;
+    color: #fff !important;
+}
+
+/*score box style*/
+div.jQBracket .team div.score {
+    float: right;
+    padding: 3px;
+    text-align: center;
+    box-sizing: border-box;
+    /*background-color: rgba(200, 170, 10, .6) !important;*/
+    background-color: #1057a5 !important;
+    color: #fff !important;
+}
+
+
+div.jQBracket .team div.label {
+    position: relative !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    height: auto !important;
+
+}
+
+
+/*team score (lose)*/
+div.jQBracket .team.lose div.score {
+    /*color: #000 !important;*/
+    color: #fff !important;
+}
+
+/*team score (win)*/
+div.jQBracket .team.win div.score {
+    /*color: #ff0 !important;*/
+    color: #fff !important;
+    font-weight: bolder !important;
+}
+
+/*label & box score color*/
+div.jQBracket .team.win {
+    /*color: #ff0 !important;*/
+    font-weight: 700 !important;
+}
+
+
+/*connector highlight*/
+div.jQBracket .connector.highlight,
+div.jQBracket .connector div.connector.highlight {
+    /*border-color: #0c0;*/
+    /*border-color: #867033 !important;*/
+    border-color: #1057a5 !important;
+
+}
+
+/*style for NA label*/
+div.jQBracket .team.na {
+    /*background-color: #444 !important;*/
+    background-color: #F2F2F2 !important;
+    /*color: #fff !important;*/
+    color: #007bff !important;
+
+}
+
+/*style for NA score box*/
+div.jQBracket .team.na div.score {
+    /*color: #000 !important;*/
+    color: #fff !important;
+}
+
+div.jQBracket .win .bubble {
+    background-color: #da0;
+    color: #333 !important;
+}

@@ -1,0 +1,633 @@
+/*Custom pagination*/
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    background-color: #000000;
+    border-color: #ffffff;
+    border-radius: 0px;
+    cursor: default;
+}
+
+.pagination > li > a {
+    background: #fafafa;
+    border-color: #000000;
+    color: #000000;
+    border-radius: 0px;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    margin: 0 10px;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    color: #337ab7;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    margin-left: -1px;
+}
+
+.custom-navbar {
+    background-color: #a8282c!important;
+}
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #000000;
+    border-radius: 0px;
+    cursor: not-allowed;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+    margin-left: 0;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.pagination > li > a {
+    background: #ffffff;
+    color: #666;
+    border-color: #000000;
+    color: #000000;
+    border-radius: 0px;
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus 
+{
+    color: #ffffff;
+    background-color: #000000;
+    border-color: #ffffff;
+}
+
+
+/* STUDENT SECTION */
+
+a.student-name{
+    cursor: pointer;
+}
+
+
+/* STUDENT ASSESSMENT REPORT SECTION */
+.curriculum-btn .options {
+    visibility: hidden;
+    position:fixed; 
+    opacity:0;
+}
+
+.curriculum-btn label {
+    border-radius: 0 !important;
+}
+
+.curriculum-btn .btn {
+    color: #6C757D;
+    background-color: #ffffff;
+}
+
+.curriculum-btn .btn:hover, .curriculum-btn .btn:focus, .curriculum-btn .btn:active, .curriculum-btn .btn.active {
+    color: #ffffff;
+    background-color: #034DA2;
+    z-index: auto;
+}
+
+.category-title {
+    margin-bottom: 5px; 
+    margin-top: 5px;
+}
+/* END OF STUDENT ASSESSMENT REPORT SECTION */
+
+/* PRINT REPORT */
+@media only print
+{
+    /*html, body
+    {
+        -webkit-print-color-adjust:exact !important;
+        height: 100%;
+        width: 100%;
+    }*/
+
+    .report-footer
+    {
+        page-break-after: always;
+    }
+
+    .report-header-title
+    {
+        font-family: 'Multicolore';
+        font-size: 40px;
+        color: #FFFFFF;
+    }
+
+    /*@page 
+    {
+        margin: 0; 
+    }*/
+}
+
+@media only screen and (min-width: 1px) {
+
+    .report-header-title
+    {
+        font-family: 'Multicolore';
+        font-size: 40px;
+        line-height: 32px;
+        color: #FFFFFF;
+    }
+
+    .report-background
+    {
+        height: 100vh;
+    }
+}
+
+.pagebreak 
+{ 
+    page-break-before: always;
+}
+
+.rounded-area
+{
+    border: 4px solid #F7A41F !important;
+    border-radius: 20px;
+}
+
+.report-wrapper {
+    /*position: absolute;*/
+    display: block;
+    /*width: 210mm;*/
+    height: 1403px;
+    width: 100%;
+    /*margin: 0;*/
+    /*padding-bottom: 0;*/
+    overflow-y: hidden; 
+    /* don't show content that exceeds my height */
+    overflow-x: hidden;
+}
+
+.report-footer {
+    /*position: absolute;*/
+    bottom: 0;
+    padding-bottom: 13px;
+    padding-left: 20px;
+}
+
+.report-footer label {
+    color: #FFFFFF;
+    font-family: 'Multicolore';
+    font-size: 20px;
+}
+
+.report-wrapper .radar-chart
+{
+    margin-top: 200px;
+    width: 500px;
+}
+
+.report-wrapper .photo-area
+{
+    margin-top: 10rem !important;
+    width: 274px;
+    margin-bottom: 2rem !important;
+    margin-right: 1rem !important;
+    margin: auto;
+    display: block !important;
+}
+
+.report-wrapper .photo-area img
+{
+    width: 274px !important;
+    height: 400px !important;
+
+    /*width: 152px !important;
+    height: 227px !important;*/
+
+    object-fit: cover !important;
+    object-position: center top;
+    background-color: #FFFFFF;
+}
+
+.report-wrapper .title
+{
+    font-size: 30px;
+    color: #FFFFFF;
+    font-family: 'Multicolore';
+    -webkit-print-color-adjust: exact; 
+}
+
+.bottom-report-info
+{
+    float: right; 
+    margin-right: 20px; 
+    font-size: 20px;
+}
+
+.ruler-progress-bar
+{
+    position: absolute; 
+    width: 100%; 
+    top:-8px;
+}
+
+.end-progress-bar
+{
+    width:25px; 
+    position: absolute; 
+    top:-5px; 
+}
+
+.assessment-area
+{
+    margin-top: 5rem !important;
+    padding-top: 80px;
+}
+
+.indicator-area
+{
+    height: 33px;
+}
+
+.assessment-const
+{
+    margin-right: 5px;
+    margin-left: 15px;
+}
+
+.assessment-category-title
+{
+    color: #FFFFFF;
+    font-family: 'Multicolore';
+    -webkit-print-color-adjust: exact; 
+}
+
+.pre-hoops-assessment
+{
+    color: black;
+    font-family: 'Multicolore';
+    font-size: 15px;
+    -webkit-print-color-adjust: exact; 
+}
+
+.pre-hoops-indicator-title
+{
+    color: black;
+    font-family: 'Multicolore';
+    font-size: 15px;
+    -webkit-print-color-adjust: exact; 
+}
+
+.pre-hoops-development-area
+{
+    font-family: 'Multicolore';
+    font-size: 25px;
+    -webkit-print-color-adjust: exact; 
+    width:15rem;
+}
+
+.pre-hoops-skill-area
+{
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.pre-hoops-skill-area span
+{
+    font-family: 'Multicolore';
+    font-size: 20px;
+    color: white;
+}
+
+.pre-hoops-bar
+{
+    height: 50px;
+}
+
+.pre-hoops-bar .data
+{
+    height:19px;
+    background-color: #2DAAE1;
+}
+
+.pre-hoops-title
+{
+    font-family: 'KidsMagazine';
+    font-size: 38px;
+    color: white;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.assessment-bar
+{
+    height: 33px;
+}
+
+.assessment-bar .data
+{
+    height:19px; 
+    background-color: #008D36;
+}
+
+.notes-pre-hoops-area
+{
+    margin-top: 13px;
+}
+
+.report-assessment-pre-hoops
+{
+    padding-top: 13.5rem;
+    padding-bottom: .8rem;
+}
+
+.report-assessment-pre-hoops .title-area
+{
+    height: 10px;
+}
+
+.notes-pre-hoops-area .title
+{
+    height: 40px; 
+    color: black;
+}
+
+.notes-pre-hoops-area .data
+{
+    /*height: 50px;*/
+    color: black;
+}
+.chart-area
+{
+    background-color: #FFFFFF;
+    margin-right: 12px; 
+}
+
+.information-area
+{
+    width: 100mm;
+    height: 12mm;
+    background-color: #FFFFFF;
+}
+
+.information-area-right
+{
+    margin-left: 20px;
+}
+
+.information-area-right .title
+{
+    font-size: 25px;
+}
+
+.double-information-area
+{
+    width: 47mm;
+    height: 12mm;
+    background-color: #FFFFFF;
+}
+
+.double-information-area-left
+{
+    width: 47mm;
+    height: 12mm;
+    background-color: #FFFFFF;
+    margin-left: 10px;
+}
+
+.arm-area
+{
+    width: 25rem;
+    height: 30px;
+    background-color: #FFFFFF;
+    margin-left: 15px;
+    line-height: 20px;
+}
+
+.information-area .data
+{
+    line-height: 33px;
+}
+
+.double-information-area .data
+{
+    line-height: 33px;
+}
+
+.report-wrapper .information-title
+{
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    color: #FFFFFF;
+    font-family: 'Multicolore';
+}
+
+.report-wrapper .information-title .data
+{
+    height: 40px; 
+    line-height: 30px;
+}
+
+.nutrition-description-data
+{
+    size: 10px;
+    color: black;
+    font-family: 'Multicolore';
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.nutrition-area
+{
+    margin-top: 3rem !important;
+}
+
+.nutrition-photo img
+{
+    width: 200px !important;
+    height: 500px !important;
+    object-fit: cover !important;
+    object-position: center top;
+    margin-top: 7rem;
+}
+
+.nutrition-line
+{
+    margin-top: 7rem;
+}
+
+.nutrition-line img
+{
+    height: 500px !important;
+    width: 40px !important;
+    margin-left: 30px;
+}
+
+.rounded-nutrition-area
+{
+    border: 4px solid #FFFFFF !important;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+}
+
+.nutrition-photo-data
+{
+    margin-top: 5rem; 
+    display: flex;
+}
+
+.nutrition-photo-data .height-data
+{
+    height: 30px;
+}
+
+.nutrition-photo-data .weight-data
+{
+    margin-top: 215px;
+}
+
+.nutrition-photo-data .bmi-data
+{
+    margin-top: 125px;
+}
+
+.nutrition-description
+{
+    margin-left: 3rem; 
+    height: 200px;
+}
+
+.nutrition-description img
+{
+    padding-top: 1rem;
+}
+
+.nutrition-description .suggest
+{
+    height: 35rem;
+    margin-top: 171px;
+}
+
+.nutrition-description .suggest-title
+{
+     color: #2DAAE1;
+     font-size: 25px;
+     padding-top: 15px;
+     margin-left: 3rem;
+}
+
+.bg-transparent-white
+{
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.bg-blue
+{
+    color: white; 
+    background-color: #2DAAE1;
+}
+
+.rounded-character-area
+{
+    border: 4px solid #FFFFFF !important;
+    border-radius: 20px;
+}
+
+.character-area
+{
+    background-color: #FFFFFF;
+    /*min-height: 400px !important;*/
+    width: 830px;
+    margin: auto;
+    text-align: center;
+}
+
+.ttd-coach
+{
+    width: 790px;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+.ttd-coach-pre-hoops
+{
+    width: 740px;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.character-data
+{
+    color: black;
+    font-family: 'Multicolore';
+    font-size: 20px;
+    -webkit-print-color-adjust: exact; 
+}
+
+.report-award .header-title
+{
+    padding-top: 140px;
+    margin-top: 5rem;
+}
+
+.report-character .header-title
+{
+    padding-top: 140px; 
+    margin-top: 1rem;
+}
+
+.report-character .header-title.add-rem
+{
+    margin-top: 5rem;
+}
+
+.report-character .title
+{
+    margin-left: 8rem;
+}
+
+/* END OF PRINT REPORT */
+
+/* START OF PLACEMENT TEST */
+
+.placement-test span
+{
+    font-weight: bold;
+    color: black;
+}
+
+.rounded-photo-placement
+{
+    border: 4px solid white !important;
+    border-radius: 20px;
+}
+/* END OF PLACEMENT TEST */
+
+.checkbox-apparel
+{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.apparel-name
+{
+    padding-right: 5px;
+}
+
+.apparel-area
+{
+    margin-bottom:23px;
+}
+
+.apparel-label
+{
+    margin-right:10px; font-size:15px;
+}
+
+.apparel input
+{
+    margin-left:-15px; transform: scale(1);
+}

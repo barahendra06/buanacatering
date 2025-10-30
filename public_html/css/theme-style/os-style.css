@@ -1,0 +1,10 @@
+.boss-countdown div span:last-child,
+.boss-scroll-down a,
+.boss-cta-area .boss-button a,
+#scrollUp,
+.boss-subscribe-area .boss-form input {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+}
