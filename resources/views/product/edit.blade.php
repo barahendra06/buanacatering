@@ -36,26 +36,26 @@
 
     @section('main-content')
         <div class="row">
-            <div class="col-md-12">
-                <div class="box box-default">
-                    <div class="box-header with-border">
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                            </button>
-                            <a class="btn btn-warning btn-sm" href="{{ route('product-index') }}">Back to list</a>
+            <form id="myForm" role="form" method="POST" enctype="multipart/form-data" action="{{ route('product-update', $product->id) }}">
+                <div class="col-md-12">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                                <a class="btn btn-warning btn-sm" href="{{ route('product-index') }}">Back to list</a>
+                            </div>
+                            <!-- /.box-tools -->
                         </div>
-                        <!-- /.box-tools -->
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form id="myForm" role="form" method="POST" enctype="multipart/form-data" action="{{ route('product-update', $product->id) }}">
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                 <div class="form-group">
+                                                    <div class="form-group">
                                                     <label>Product Category <span class="text-danger">*</span></label>
                                                     <div class="input-group">
                                                         <div class="input-group-addon">
@@ -112,103 +112,135 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                    {{-- <input type="checkbox" id="varians_product" name="varians_product" value="1"> --}}
-                                    <div class="box use_varians">
-                                        <div class="box-header">
-                                            <label for="">Product Variants</label>
-                                        </div>
-                                        <div class="box-body">
-                                            @if($product->productVariants->count())
-                                                <div class="mt-5">
-                                                    <table class="table ">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Variant</th>
-                                                                <th>Price</th>
-                                                                <th>Description</th>
-                                                                <th>Image</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody class="">
-                                                            @foreach($product->productVariants as $variant)
-                                                            <tr>
-                                                                <td>
-                                                                    <input class="form-control" type="text" name="variant_existing[{{ $variant->id }}]" value="{{ $variant->name }}" id="" required>
-                                                                </td>
-                                                                <td>
-                                                                    <input class="form-control" type="number" name="price_article_existing[{{ $variant->id }}]" value="{{ $variant->price }}" id="" required>
-                                                                </td>
-                                                                <td>
-                                                                    <textarea class="form-control" type="number" name="description_article_existing[{{ $variant->id }}]" id="">{{ $variant->description }}</textarea>
-                                                                </td>
-                                                                <td>
-                                                                    <img src="{{ asset($variant->img_path) }}" alt="" width="150px">
-                                                                    <input type="file" name="image_article_existing[{{ $variant->id }}]" id="" {{ $variant->img_path ? '' : 'required' }}>
-                                                                </td>
-                                                            </tr>
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            @else
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <label for="">Variant</label>
-                                                        <select class="form-control variant_type" type="text" id="variant_type"
-                                                            name="variant_type" multiple="multiple"></select>
-                                                    </div>
-                                                    <div class="col-md-4 hide">
-                                                        <label for="">Size </label>
-                                                        <select class="form-control size_type" type="text" id="variant_type" name="variant_type"
-                                                            multiple="multiple">
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a class="btn btn-sm btn-success btn-generate-article" style="margin-top: 25px">
-                                                            Generate Variants
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-5" style="display: none" id="articleForm">
-                                                    <table class="table ">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Variant</th>
-                                                                <th>Price</th>
-                                                                <th></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody class="article-body">
-                                                            <tr>
-                                                                <td>
-                                                                    <input class="form-control article1" type="text" name="variant[]" id="" disabled>
-                                                                </td>
-                                                                <td>
-                                                                    <input class="form-control article1" type="number" name="price_article[]" id="">
-                                                                </td>
-                                                                <td>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="form-group float-right">
-                                        <button class="btn btn-sm btn-success" id="submitBtn" type="submit">Update Product</button>
-                                    </div>
-                                </form>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                </div>
                             </div>
-                            <div class="col-md-4 text-right">
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </div>	
+                <div class="col-md-12">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.box-tools -->
+                        </div>
+                        <div class="box-body">
+                            {{-- <input type="checkbox" id="varians_product" name="varians_product" value="1"> --}}
+                            <div class="box use_varians">
+                                <div class="box-header">
+                                    <label for="">Existing Product Variants</label>
+                                </div>
+                                <div class="box-body">
+                                    @if($product->productVariants->count())
+                                        <div class="mt-5">
+                                            <table class="table ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Variant</th>
+                                                        <th>Price</th>
+                                                        <th>Description</th>
+                                                        <th>Image</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="">
+                                                    @foreach($product->productVariants as $variant)
+                                                    <tr>
+                                                        <td>
+                                                            <input class="form-control" type="text" name="variant_existing[{{ $variant->id }}]" value="{{ $variant->name }}" id="" required>
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control" type="number" name="price_article_existing[{{ $variant->id }}]" value="{{ $variant->price }}" id="" required>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" type="number" name="description_article_existing[{{ $variant->id }}]" id="">{{ $variant->description }}</textarea>
+                                                        </td>
+                                                        <td>
+                                                            <img src="{{ asset($variant->img_path) }}" alt="" width="150px">
+                                                            <input type="file" name="image_article_existing[{{ $variant->id }}]" id="" {{ $variant->img_path ? '' : 'required' }}>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-            </div>	
+                <div class="col-md-12">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.box-tools -->
+                        </div>
+                        <div class="box-body">
+                            {{-- <input type="checkbox" id="varians_product" name="varians_product" value="1"> --}}
+                            <div class="box use_varians">
+                                <div class="box-header">
+                                    <label for="">Add New Product Variants</label>
+                                </div>
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="">Variant</label>
+                                            <select class="form-control variant_type" type="text" id="variant_type"
+                                                name="variant_type" multiple="multiple"></select>
+                                        </div>
+                                        <div class="col-md-4 hide">
+                                            <label for="">Size </label>
+                                            <select class="form-control size_type" type="text" id="variant_type" name="variant_type"
+                                                multiple="multiple">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a class="btn btn-sm btn-success btn-generate-article" style="margin-top: 25px">
+                                                Generate Variants
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5" style="display: none" id="articleForm">
+                                        <table class="table ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Variant</th>
+                                                    <th>Price</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="article-body">
+                                                <tr>
+                                                    <td>
+                                                        <input class="form-control article1" type="text" name="variant[]" id="" disabled>
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control article1" type="number" name="price_article[]" id="">
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group float-right">
+                                <button class="btn btn-sm btn-success" id="submitBtn" type="submit">Update Product</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     @endsection
 
