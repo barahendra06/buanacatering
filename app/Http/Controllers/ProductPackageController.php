@@ -63,7 +63,6 @@ class ProductPackageController extends Controller
             $productPackage->price = $request->product_package_price;
             $productPackage->save();
 
-
             if (isset($request->image_product_package)) {
                 //get the photo data and new path
                 $file = $request->image_product_package;
@@ -190,7 +189,7 @@ class ProductPackageController extends Controller
                 //get the photo data and new path
                 $file = $request->image_product_package;
                 $folderPath = 'uploads/product_package/' . $productPackage->id . '/';
-                $newPath = $folderPath . '/package_' . $productPackage->id  .  '.' . $file->getClientOriginalExtension(); // upload path
+                $newPath = $folderPath . 'package_' . $productPackage->id  .  '.' . $file->getClientOriginalExtension(); // upload path
 
                 // create the directory if its not there, this is a must since intervention did not create the directory automatically
                 File::exists($folderPath) or File::makeDirectory($folderPath, 0755, true);
