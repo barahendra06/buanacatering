@@ -34,10 +34,10 @@
                     @endif
                     <li><a class="child-tree" href="{{ route('edit-profile') }}">Edit Profile</a></li>
                     <li><a class="child-tree" href="{{ route('change-password') }}">Change Password</a></li>
-                    <li><a class="child-tree" href="{{ route('get-notification-all', $currentMember->id) }}">Notifications</a></li>
+                    {{-- <li><a class="child-tree" href="{{ route('get-notification-all', $currentMember->id) }}">Notifications</a></li> --}}
                 </ul>
             </li>
-            @if($currentMember->user->isAdmin() or $currentMember->user->isEditor())	
+            {{-- @if($currentMember->user->isAdmin() or $currentMember->user->isEditor())	
             <li class="@if(Route::current()->getName() == 'short-url-create' or 
                             Route::current()->getName() == 'member-list' or 
                            Route::current()->getName() == 'setting-list' or 
@@ -56,7 +56,7 @@
                 @endif
                 </ul>
             </li>      
-            @endif 
+            @endif  --}}
             @can('list', \App\HseElement::class)
              <li class="@if(Route::current()->getName() == 'product-index' 
                             or Route::current()->getName() == 'product-create' 

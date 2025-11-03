@@ -25,7 +25,7 @@
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <!-- Notifications Menu -->
+                {{-- <!-- Notifications Menu -->
                 <li class="dropdown notifications-menu">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -45,12 +45,6 @@
                                                 <div class="col-xs-3 no-padding text-center ">
                                                     @if($notif->activity_type_id == ACTIVITY_PREMIUM_COMMENT)
                                                         <i class="fa fa-star fa-2x"></i>
-                                                    {{--
-                                                    @elseif($notif->activity_type_id == ACTIVITY_PREMIUM)
-                                                        <i class="fa fa-star fa-2x star-silver"></i>
-                                                    @elseif($notif->activity_type_id == ACTIVITY_WINNER)
-                                                        <i class="fa fa-star fa-2x star-gold"></i>
-                                                    --}}
                                                     @elseif($notif->activity_type_id == ACTIVITY_NEW_BADGE)
                                                         <i class="fa fa-trophy fa-2x"></i>
                                                     @elseif($notif->activity_type_id == ACTIVITY_REDEMPTION_APPROVED or $notif->activity_type_id == ACTIVITY_REDEMPTION_REJECTED)
@@ -63,11 +57,6 @@
                                                     <ul class="menu custom-menu">
                                                         <li><!-- start notification -->
                                                             <a data-href="{{ $notif->link ?? '' }}" data-id="{{ $notif->id }}" data-type="{{ $notif->activity_type_id }}" class="notification-link no-border icon-pointer" style="white-space:normal">
-                                                                {{--
-                                                                @if($notif->activity_type_id != ACTIVITY_PREMIUM_COMMENT
-                                                                      and $notif->activity_type_id != ACTIVITY_PREMIUM
-                                                                      and $notif->activity_type_id != ACTIVITY_WINNER)
-                                                                --}}
                                                                 @if(!in_array($notif->activity_type_id, NOTIFICATION_WITHOUT_SUBJECT) )
                                                                     <b>{{ $notif->sender->name ?? '' }}</b> 
                                                                 @endif
@@ -97,7 +86,7 @@
                         @endif
                         <!-- <li class="footer"><a href="#">View all</a></li> -->
                     </ul>
-                </li>
+                </li> --}}
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
