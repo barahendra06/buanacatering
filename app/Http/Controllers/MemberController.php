@@ -17,6 +17,11 @@ use App\Member;
 use App\RedemptionPrize;
 use App\RedemptionTransaction;
 use App\Roles;
+use App\ProductCategory;
+use App\Product;
+use App\ProductPackage;
+
+
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -336,24 +341,15 @@ class MemberController extends Controller
 
         $poin = 0;
         
-        if($user->isAdmin() or $user->isManager())
-        {
-            $start = Carbon::today()->startOfDay();
-            $end = Carbon::today()->endOfDay();
+        $totalProductCategories = ProductCategory
+::active()->get()->count();
+        $totalProducts = Product::active()->get()->count();
+        $totalProductPackages = ProductPackage::active()->get()->count();
 
-            $memberRegister = User::orderBy('created_at','desc')
-                                    ->member()
-                                    ->count();
+        $data['totalProductCategories'] = $totalProductCategories;
+        $data['totalProducts'] = $totalProducts;
+        $data['totalProductCategories'] = $totalProductPackages;
 
-            $memberRegisterToday = User::whereBetween('created_at', [$start , $end])
-                                        ->member()
-                                        ->orderBy('created_at','desc')
-                                        ->count();
-
-            $data['memberRegister'] = $memberRegister;
-            $data['memberRegisterToday'] = $memberRegisterToday;
-        }
-       
         $data['title'] = 'Dashboard';
         $data['member'] = $member;
     

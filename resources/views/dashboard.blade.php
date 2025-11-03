@@ -22,29 +22,48 @@
      
       <div class="row">
           <div class="col-lg-3 col-xs-6">
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                  <h3>{{ $memberRegister }}</h3>
+              <a href="{{ route('product-category-index') }}">
+                <div class="small-box bg-aqua">
+                  <div class="inner">
+                    <h3>{{ $totalProductCategories }}</h3>
 
-                  <p>Total Register</p>
+                    <p>Total Product Category</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-users"></i>
+                  </div>
+                </div>
+              </a>
+          </div>
+          <div class="col-lg-3 col-xs-6">
+            <a href="{{ route('product-index') }}">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>{{ $totalProducts }}</h3>
+
+                  <p>Total Product</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-users"></i>
                 </div>
               </div>
-            </div>
+            </a>
+          </div>
           <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-yellow">
-              <div class="inner">
-                <h3>{{ $memberRegisterToday }}</h3>
+            <a href="{{ route('package-index') }}">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>{{ $totalProductCategories }}</h3>
 
-                <p>Register Today</p>
+                  <p>Total Product Package</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-users"></i>
+                </div>
               </div>
-              <div class="icon">
-                <i class="fa fa-users"></i>
-              </div>
-            </div>
+            </a>
           </div>
       </div>
     @endif

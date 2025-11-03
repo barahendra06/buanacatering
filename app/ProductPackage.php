@@ -20,4 +20,9 @@ class ProductPackage extends Model
     {
         return 'Rp. ' . number_format($this->price, 0, ',', '.');
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
 }
