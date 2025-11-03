@@ -60,8 +60,28 @@ class ProductCategoryController extends Controller
             $productCategory->name = $request->product_category_name;
             $productCategory->description = $request->product_category_description;
             $productCategory->save();
-
          
+            if(isset($request->image_product))
+            {
+                //get the photo data and new path
+                $file = $request->image_product;
+                $folderPath = 'uploads/product-category/' . $productCategory->id . '/';
+                $newPath = $folderPath . '/product_category' . $productCategory->id  .  '.' . $file->getClientOriginalExtension(); // upload path
+
+                // create the directory if its not there, this is a must since intervention did not create the directory automatically
+                File::exists($folderPath) or File::makeDirectory($folderPath, 0755, true);
+
+                // resize and save the uploaded file            
+                Image::make($file)
+                    ->resize(1000, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                    ->save($newPath);
+
+                $productCategory->img_path = $newPath; // upload path
+                $productCategory->save();
+            }
 
             DB::commit();
 
@@ -142,6 +162,27 @@ class ProductCategoryController extends Controller
             $productCategory->description = $request->product_category_description;
             $productCategory->save();
 
+            if(isset($request->image_product))
+            {
+                //get the photo data and new path
+                $file = $request->image_product;
+                $folderPath = 'uploads/product-category/' . $productCategory->id . '/';
+                $newPath = $folderPath . '/product_category' . $productCategory->id  .  '.' . $file->getClientOriginalExtension(); // upload path
+
+                // create the directory if its not there, this is a must since intervention did not create the directory automatically
+                File::exists($folderPath) or File::makeDirectory($folderPath, 0755, true);
+
+                // resize and save the uploaded file            
+                Image::make($file)
+                    ->resize(1000, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                    ->save($newPath);
+
+                $productCategory->img_path = $newPath; // upload path
+                $productCategory->save();
+            }
       
             DB::commit();
 

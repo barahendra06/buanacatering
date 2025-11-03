@@ -45,6 +45,7 @@
                                     <th class="text-center">No</th>
                                     <th class="text-center">Name</th>
                                     <th class="text-center" width=40%>Description</th>
+                                    <th class="text-center" width=30%>Image</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -54,6 +55,7 @@
                                         <td class="text-center">{{ $loop->iteration }}</td>
                                         <td class="text-center" data-id="{{ $category->id }}">{{ $category->name }}</td>
                                         <td class="text-center">{{ $category->description }}</td>
+                                        <td class="text-center"><img src="{{ asset($category->img_path) }}" alt="" width="100px"></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning btn-sm" href="{{ route('product-category-edit', $category->id) }}">Manage</a>
                                         </td>

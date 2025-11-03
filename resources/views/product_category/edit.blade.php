@@ -75,7 +75,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                          
+                                            <div class="col-md-6">
+                                                <div class="col-md-6">
+                                                    <div class="form-group   ">
+                                                        <label>Product Image</label>
+                                                        <img class="img-preview" id="img-product-preview" width=270px height=190px src="{{ asset($productCategories->img_path) }}"
+                                                            style="object-fit: contain;display:block;">
+                                                        <input class="form-control" onchange="previewImageProduct(event);"
+                                                            type="file" accept="image/*" name="image_product" id="image_product"
+                                                            placeholder="Black" style="border:none" {{ $productCategories->img_path ? '' : 'required' }}>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                    
@@ -111,6 +122,16 @@
                 },
             })
         })
+
+        function previewImageProduct(event) 
+        {
+            if(event.target.files.length > 0){
+                var src = URL.createObjectURL(event.target.files[0]);
+                var preview = document.getElementById("img-product-preview");
+                preview.src = src;
+                preview.style.display = "block";
+            }
+        }
     </script>
 
   
