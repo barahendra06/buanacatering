@@ -61,6 +61,7 @@ class ProductPackageController extends Controller
             $productPackage->name = $request->product_package_name;
             $productPackage->description = $request->product_package_description;
             $productPackage->price = $request->product_package_price;
+            $productPackage->quantity = $request->product_package_quantity;
             $productPackage->save();
 
             if (isset($request->image_product_package)) {
@@ -183,6 +184,7 @@ class ProductPackageController extends Controller
             $productPackage->name = $request->product_package_name;
             $productPackage->description = $request->product_package_description;
             $productPackage->price = $request->product_package_price;
+            $productPackage->quantity = $request->product_package_quantity;
             $productPackage->save();
 
             if (isset($request->image_product_package)) {

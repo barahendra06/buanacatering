@@ -65,13 +65,12 @@ class HomeController extends Controller
             return $product->productCategory->name ?? 'Tanpa Kategori';
         });
 
+        $contact = Contact::first();
 
         $data['productCategories'] = $productCategories;
         $data['productPackage'] = $productPackage;
         $data['mappingProduct'] = $mappingProduct;
-
-
-
+        $data['contact'] = $contact;
 
         return view('home', $data);
     }

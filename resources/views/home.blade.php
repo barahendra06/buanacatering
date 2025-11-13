@@ -619,7 +619,7 @@ Home
                   <h2 class="section-title display-5 text-light">Contact Us</h2>
                 </div>
                 <p>
-                  Whatsapp: <a href="wa.me/6281259809558" target="_blank">+6281259809558</a>
+                  Whatsapp: <a href="https://wa.me/{{ $contact->phone_number }}" target="_blank">+{{ $contact->phone_number }}</a>
                   <br>
                   Email: <a href="mailto:halo.buaanacatering@gmail.com" target="_blank">halo.buaanacatering@gmail.com</a>
                 </p>

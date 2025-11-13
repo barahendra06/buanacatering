@@ -61,6 +61,7 @@
           <div class="col-md-6">
             <h5 class="fw-bold text-black">{{ strToUpper($package->name ?? '') }}</h5>
             <p class="mb-4">{{ $package->description ?? '' }}</p>
+            <p class="mb-4"><b>For {{ $package->quantity }} Pax</b></p>
             <ul style="padding-left: 1rem!important;font-size:16px">
             @foreach ($details as $index=>$items)
              <li>{{ $items->product->name }}</li>
@@ -74,6 +75,7 @@
 
       {{-- Footer --}}
       <div class="modal-footer">
+        <a class="btn btn-primary" href="https://wa.me/{{ $contact->phone_number }}" target="_blank"><i class="fa fa-whatsapp"></i>Order Now via Whatsapp</a>
         <button type="button" class="btn btn-secondary rounded-3" data-bs-dismiss="modal">Tutup</button>
         {{-- <a href="{{ route('package.show', $package->id) }}" class="btn btn-primary rounded-3">Lihat Selengkapnya</a> --}}
       </div>

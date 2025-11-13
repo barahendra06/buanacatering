@@ -185,6 +185,15 @@
                                                         <input class="form-control" type="text" name="product_package_description" placeholder="ex: Paket Suhe(Super Hemat) ayam+nasi+esteh" required>
                                                     </div>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label>Pax (Quantity) <span class="text-danger">*</span></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            Pax
+                                                        </div>
+                                                        <input class="form-control" type="number" name="product_package_quantity" placeholder="ex: 500" required>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="col-md-6">

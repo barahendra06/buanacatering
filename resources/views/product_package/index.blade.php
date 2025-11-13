@@ -47,6 +47,7 @@
                                     <th class="text-center">Price</th>
                                     <th class="text-center">Products</th>
                                     <th class="text-center" width=40%>Description</th>
+                                    <th class="text-center">Quantity</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -65,7 +66,7 @@
                                         </ol>
                                         </td>
                                         <td class="text-center">{{ $package->description }}</td>
-
+                                        <td class="text-center">{{ $package->quantity }} Pax</td>
                                         <td class="text-center">
                                             <a class="btn btn-warning btn-sm" href="{{ route('package-edit', $package->id) }}">Manage</a>
                                         </td>

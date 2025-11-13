@@ -84,6 +84,7 @@
 
       {{-- Footer --}}
       <div class="modal-footer">
+        <a class="btn btn-primary" href="https://wa.me/{{ $contact->phone_number }}" target="_blank"><i class="fa fa-whatsapp"></i>Order Now via Whatsapp</a>
         <button type="button" class="btn btn-secondary rounded-3" data-bs-dismiss="modal">Tutup</button>
         {{-- <a href="{{ route('package.show', $product->id) }}" class="btn btn-primary rounded-3">Lihat Selengkapnya</a> --}}
       </div>
