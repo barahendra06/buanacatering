@@ -57,7 +57,8 @@
                                         <td class="text-center">{{ $category->description }}</td>
                                         <td class="text-center"><img src="{{ asset($category->img_path) }}" alt="" width="100px"></td>
                                         <td class="text-center">
-                                            <a class="btn btn-warning btn-sm" href="{{ route('product-category-edit', $category->id) }}">Manage</a>
+                                            <a class="btn btn-warning btn-xs" href="{{ route('product-category-edit', $category->id) }}">Manage</a>
+                                            <a class="btn btn-danger btn-xs" href="{{ route('product-category-delete', $category->id) }}" onclick="return confirm('Are you sure to delete this category? this action will delete all products and all product on product package detail too and you cannot revert this. Please make sure first!')">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

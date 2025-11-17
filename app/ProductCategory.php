@@ -13,7 +13,7 @@ class ProductCategory extends Model
 
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class, 'catering_product_category_id');
     }
 
     public function scopeActive($query)

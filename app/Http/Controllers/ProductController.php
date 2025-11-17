@@ -138,7 +138,6 @@ class ProductController extends Controller
         }
         catch(\Exception $e)
         {
-            dd($e);
             \Log::error($e);
             return redirect()->back()->withErrors('Something went wrong, please try again')->withInput();;
         }
@@ -161,6 +160,14 @@ class ProductController extends Controller
         {
             if($product)
             {
+                if($product->productPackageDetails->count())
+                {
+                    foreach($product->productPackageDetails as $item)
+                    {
+                        $item->delete();
+                    }
+                }
+
                 $productVariants = $product->productVariants;
 
                 foreach($productVariants as $item)
@@ -319,7 +326,6 @@ class ProductController extends Controller
         }
         catch(\Exception $e)
         {
-            dd($e);
             \Log::error($e);
             return redirect()->back()->withErrors('Something went wrong, please try again')->withInput();;
         }

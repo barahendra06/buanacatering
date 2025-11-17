@@ -120,34 +120,6 @@ class ProductPackageController extends Controller
 
         return view('product.print', $data);
     }
-
-    public function delete($id)
-    {
-        $product = Product::find($id);
-        
-        try
-        {
-            if($product)
-            {
-                $productVariants = $product->productVariants;
-
-                foreach($productVariants as $item)
-                {
-                    $item->delete();
-                }
-
-                $product->delete();
-
-                return redirect()->back()->withMessage('Delete Data is Success');
-            }
-        }
-        catch(\Exception $e)
-        {
-            \Log::error($e);
-            return redirect()->back()->withErrors('Something went wrong, please try again');
-        }
-    }
-
     public function edit($id)
     {   
         $this->authorize('edit', App\Product::class);

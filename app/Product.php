@@ -30,4 +30,9 @@ class Product extends Model
     {
         return $query->where('is_active', 1);
     }
+
+    public function productPackageDetails()
+    {
+        return $this->hasMany(ProductPackageDetail::class, 'catering_product_id');
+    }
 }

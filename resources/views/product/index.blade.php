@@ -65,7 +65,8 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            <a class="btn btn-warning btn-sm" href="{{ route('product-edit', $product->id) }}">Manage</a>
+                                            <a class="btn btn-warning btn-xs" href="{{ route('product-edit', $product->id) }}">Manage</a>
+                                            <a class="btn btn-danger btn-xs" href="{{ route('product-delete', $product->id) }}" onclick="return confirm('Are you sure to delete this data? this action will delete specific product package detail too and you cannot revert this. Please make sure first!')">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

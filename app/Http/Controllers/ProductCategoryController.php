@@ -106,20 +106,36 @@ class ProductCategoryController extends Controller
 
     public function delete($id)
     {
-        $product = Product::find($id);
+        $productCategory = ProductCategory::find($id);
         
         try
         {
-            if($product)
+            if($productCategory)
             {
-                $productVariants = $product->productVariants;
-
-                foreach($productVariants as $item)
+                if($productCategory->products->count())
                 {
-                    $item->delete();
+                    foreach($productCategory->products as $product)
+                    {
+                        if($product->productPackageDetails->count())
+                        {
+                            foreach($product->productPackageDetails as $item)
+                            {
+                                $item->delete();
+                            }
+                        }
+
+                        $productVariants = $product->productVariants;
+
+                        foreach($productVariants as $item)
+                        {
+                            $item->delete();
+                        }
+
+                        $product->delete();
+                    }    
                 }
 
-                $product->delete();
+                $productCategory->delete();
 
                 return redirect()->back()->withMessage('Delete Data is Success');
             }
@@ -190,7 +206,6 @@ class ProductCategoryController extends Controller
         }
         catch(\Exception $e)
         {
-            dd($e);
             \Log::error($e);
             return redirect()->back()->withErrors('Something went wrong, please try again')->withInput();;
         }

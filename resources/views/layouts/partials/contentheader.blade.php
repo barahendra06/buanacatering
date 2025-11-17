@@ -9,21 +9,21 @@
         <li class="active">Here</li>
     </ol> -->
     @if(isset($message))
-    <div class="flash alert-info-dashboard m-t-10">
+    <div class="flash alert-info-dashboard m-t-10" style="width: 100%; background-color:#AFE1AF">
         <p class="panel-body">
             {{ $message }}
         </p>
     </div>
     @endif	
 	@if (Session::has('message'))
-    <div class="flash alert-info-dashboard m-t-10">
+    <div class="flash alert-info-dashboard m-t-10" style="width: 100%; background-color:#AFE1AF">
         <p class="panel-body">
             {{ Session::get('message') }}
         </p>
     </div>
 	@endif	
     @if(isset($errors) and count($errors))
-    <div class="flash alert-danger-dashboard m-t-10">
+    <div class="flash alert-danger-dashboard m-t-10" style="width: 100%; background-color:#FFD1DC">
         <ul style="margin-left: 10px;" class="panel-body">
             @if($errors instanceof Illuminate\Support\ViewErrorBag)
                 @foreach($errors->all() as $error)
@@ -37,7 +37,7 @@
     @endif  
 
     @if(session('error'))
-    <div class="flash alert-danger-dashboard m-t-10">
+    <div class="flash alert-danger-dashboard m-t-10" style="width: 100%; background-color:#FFD1DC">
         <ul style="margin-left: 10px;" class="panel-body">
             @foreach(session('error') as $error)
                 <li>{{ $error }}</li>
