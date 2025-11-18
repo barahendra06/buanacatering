@@ -425,7 +425,7 @@ Home
                 @endforeach --}}
                 @foreach ($productCategories as $category)
                   <a href="#{{ $category->name }}" class="nav-link swiper-slide text-center">
-                    <img src="{{ asset($category->img_path) }}" class="rounded-circle" alt="Category Thumbnail">
+                    <img src="{{ asset($category->img_path) }}" class="rounded-circle" alt="Category Thumbnail" style="width:180px; height:180px; object-fit:cover; object-position:center;">
                     <h4 class="fs-6 mt-3 fw-normal category-title">{{ $category->name }}</h4>
                   </a>
                 @endforeach     
@@ -573,7 +573,7 @@ Home
                   <div data-bs-toggle="modal"  data-bs-target="#productModal{{ $product->id }}"  height="250px" class="product-item swiper-slide"  title="{{ $product->description ?? 'Klik untuk lihat isi package' }}">
                     <figure>
                       <a href="javascript:void(0)" title="Product Title">
-                        <img src="{{ asset($product->img_path) }}" alt="Product Thumbnail" class="tab-image" style="width:100%; object-fit: cover;">
+                        <img src="{{ asset($product->img_path) }}" alt="Product Thumbnail" class="tab-image" style="width:210px; height:210px; object-fit:cover; object-position:center;">
                       </a>
                     </figure>
                     <div class="d-flex flex-column text-center">
