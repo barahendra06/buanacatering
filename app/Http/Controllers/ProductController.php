@@ -257,7 +257,7 @@ class ProductController extends Controller
                     if(isset($request->image_article_existing[$productVariant->id]))
                     {
                         //get the photo data and new path
-                        $file = $request->image_article[$key];
+                        $file = $request->image_article_existing[$productVariant->id];
                         
                         $folderPath = 'uploads/product' . $product->id . '/';
                         $newPath = $folderPath . '/product_' . $product->id . '_variant_'. $productVariant->id . uniqid() . '.' . $file->getClientOriginalExtension(); // upload path
