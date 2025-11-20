@@ -78,6 +78,7 @@ Route::group(['prefix' => 'package', 'middleware' => 'auth'], function ()
     Route::get('edit/{id}', 'ProductPackageController@edit')->name('package-edit');
     Route::post('update/{id}', 'ProductPackageController@update')->name('package-update');
     Route::get('product/{id}', 'ProductPackageController@show')->name('product-show');
+    Route::get('delete/{id}', 'ProductPackageController@delete')->name('product-package-delete');
 });
 
 

@@ -68,7 +68,8 @@
                                         <td class="text-center">{{ $package->description }}</td>
                                         <td class="text-center">{{ $package->quantity }} Pax</td>
                                         <td class="text-center">
-                                            <a class="btn btn-warning btn-sm" href="{{ route('package-edit', $package->id) }}">Manage</a>
+                                            <a class="btn btn-warning btn-xs" href="{{ route('package-edit', $package->id) }}">Manage</a>
+                                            <a class="btn btn-danger btn-xs" href="{{ route('product-package-delete', $package->id) }}" onclick="return confirm('Are you sure to delete this package? this action cannot be revert. Please make sure first!')">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

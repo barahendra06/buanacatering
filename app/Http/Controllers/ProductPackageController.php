@@ -240,4 +240,33 @@ class ProductPackageController extends Controller
             'description' => $product->description ?? '',
         ]);
     }
+
+    public function delete($id)
+    {
+        $productPackage = ProductPackage::find($id);
+
+        try
+        {
+            if($productPackage)
+            {
+                if($productPackage->items->count())
+                {
+                    foreach($productPackage->items as $item)
+                    {
+                        $item->delete();
+                    }
+                }
+
+                $productPackage->delete();
+
+                return redirect()->back()->withMessage('Delete Data is Success');
+            }
+        }
+        catch(\Exception $e)
+        {
+            dd($e);
+            \Log::error($e);
+            return redirect()->back()->withErrors('Something went wrong, please try again');
+        }
+    }
 }
