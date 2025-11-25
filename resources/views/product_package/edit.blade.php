@@ -157,7 +157,19 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                
+                                                <div class="form-group">
+                                                    <label for="">Product Package Category</label>
+                                                    <select id="categorySelect" name="category_id" class="form-control" required>
+                                                        <option value="">-- Choose Product Package Category --</option>
+
+                                                        @foreach ($productPackageCategories as $productPackageCategory)
+                                                            <option value="{{ $productPackageCategory->id }}" {{ $productPackage->catering_product_package_category_id == $productPackageCategory->id ? 'selected' : '' }}>{{ $productPackageCategory->name }}</option>
+                                                        @endforeach
+                                                    </select>
+
+                                                    <!-- Input hidden untuk kategori baru -->
+                                                    <input type="hidden" name="new_category_name" id="newCategoryName">
+                                                </div>
                                                 <div class="form-group">
                                                     <label>Product Package Name <span class="text-danger">*</span></label>
                                                     <div class="input-group">
@@ -424,6 +436,43 @@
                 preview.style.display = "block";
             }
         }
+</script>
+
+<script>
+    $('#categorySelect').select2({
+        tags: true,
+        placeholder: 'Pilih atau ketik kategori baru...',
+        allowClear: true,
+
+        createTag: function (params) {
+            let term = $.trim(params.term);
+            if (term === '') return null;
+
+            return {
+                id: 'new:' + term,
+                text: term,
+                isNew: true
+            };
+        },
+
+        insertTag: function (data, tag) {
+            // Pastikan tag baru ditambah pada posisi akhir
+            if (tag.isNew) {
+                data.push(tag);
+            }
+        }
+    });
+
+    // Simpan nama kategori jika user membuat kategori baru
+    $('#categorySelect').on('select2:select', function (e) {
+        let selected = e.params.data;
+
+        if (selected.isNew) {
+            $("#newCategoryName").val(selected.text);   // simpan nama kategori baru
+        } else {
+            $("#newCategoryName").val("");              // kosongkan jika pilih yg lama
+        }
+    });
 </script>
 
     

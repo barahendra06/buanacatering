@@ -43,6 +43,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
+                                    <th class="text-center">Category</th>
                                     <th class="text-center">Name</th>
                                     <th class="text-center">Price</th>
                                     <th class="text-center">Products</th>
@@ -55,6 +56,7 @@
                                 @foreach ($productPackages as $package)
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
+                                        <td class="text-center">{{ $package->packageCategory->name ?? '-' }}</td>
                                         <td class="text-center" data-id="{{ $package->id }}">{{ $package->name }}</td>
                                         <td class="text-center">{{ $package->package_price }}</td>
                                         <td class="" >

@@ -11,6 +11,11 @@ class ProductPackage extends Model
 
     protected $table = 'catering_product_package';
 
+    public function packageCategory()
+    {
+        return $this->belongsTo(ProductPackageCategory::class, 'catering_product_package_category_id');
+    }
+
     public function items()
     {
         return $this->hasMany(ProductPackageDetail::class,'catering_product_package_id');

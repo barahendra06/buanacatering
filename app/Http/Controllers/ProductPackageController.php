@@ -15,6 +15,7 @@ use App\ProductCategory;
 use App\ProductVariant;
 use App\ProductPackage;
 use App\ProductPackageDetail;
+use App\ProductPackageCategory;
 
 class ProductPackageController extends Controller
 {
@@ -35,10 +36,13 @@ class ProductPackageController extends Controller
     {   
         $this->authorize('create', App\Product::class);
 
+        $productPackageCategories = ProductPackageCategory::all();
+        
         $products = Product::get();
 
         $data['title'] = "Product Package Create";
         $data['products'] = $products;
+        $data['productPackageCategories'] = $productPackageCategories;
 
         return view('product_package.create', $data);
     }
@@ -57,7 +61,18 @@ class ProductPackageController extends Controller
         {
             DB::beginTransaction();
 
+            $categoryId = $request->category_id;
+            $newCategory = $request->new_category_name;
+
+            if ($newCategory) {
+                $category = ProductPackageCategory::create([
+                    'name' => $newCategory
+                ]);
+                $categoryId = $category->id;
+            }
+
             $productPackage = new ProductPackage();
+            $productPackage->catering_product_package_category_id = $categoryId;
             $productPackage->name = $request->product_package_name;
             $productPackage->description = $request->product_package_description;
             $productPackage->price = $request->product_package_price;
@@ -128,11 +143,12 @@ class ProductPackageController extends Controller
 
         $productPackage = ProductPackage::findOrFail($id);
         $productPackageDetail = ProductPackageDetail::where('catering_product_package_id',$productPackage->id)->get();
-
+        $productPackageCategories = ProductPackageCategory::all();
 
         $data['products'] = $products;
         $data['productPackage'] = $productPackage;
         $data['productPackageDetail'] = $productPackageDetail;
+        $data['productPackageCategories'] = $productPackageCategories;
 
         $data['title'] = "Product Package Edit";
 
@@ -153,6 +169,22 @@ class ProductPackageController extends Controller
         {
             DB::beginTransaction();
 
+            $categoryId = $request->category_id;
+
+            if($productPackage->catering_product_package_category_id != $categoryId)
+            {
+                $newCategory = $request->new_category_name;
+
+                if ($newCategory) {
+                    $category = ProductPackageCategory::create([
+                        'name' => $newCategory
+                    ]);
+                    $categoryId = $category->id;
+                }
+            }
+            
+
+            $productPackage->catering_product_package_category_id = $categoryId;
             $productPackage->name = $request->product_package_name;
             $productPackage->description = $request->product_package_description;
             $productPackage->price = $request->product_package_price;

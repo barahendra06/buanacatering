@@ -13,7 +13,6 @@
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="{{ secure_asset('/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ secure_asset('/css/userbackend-v2.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('/css/buanacateringbackend.css?v4') }}" rel="stylesheet">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you

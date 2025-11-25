@@ -459,16 +459,16 @@ Home
           <div class="col-md-12">
 
             <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
-              @foreach ($productPackage as $package)
+              @foreach ($productPackageCategories as $categoryName => $packageCategory)
               <div class="col">
                 <div class="product-item text-center">
                   <figure class="m-0 position-relative">
                     <a href="javascript:void(0)" 
                       data-bs-toggle="modal" 
-                      data-bs-target="#packageModal{{ $package->id }}" 
-                      title="{{ $package->name }}">
-                      <img src="{{ asset($package->img_path) }}" 
-                          alt="{{ $package->name }}" 
+                      data-bs-target="#packageModal{{ $packageCategory->first()->catering_product_package_category_id }}" 
+                      title="{{ $categoryName }}">
+                      <img src="{{ asset($packageCategory->first()->img_path) }}" 
+                          alt="{{ $categoryName }}" 
                           class="img-fluid w-100 rounded-top-4 product-image transition-all" 
                           style="aspect-ratio: 1/1; object-fit: cover;">
                       <!-- Hover overlay -->
@@ -479,9 +479,14 @@ Home
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center mt-3">
-                    <h3 class="fs-6 fw-semibold mb-1 text-black">{{ strToUpper($package->name) }}</h3>
+                    <h3 class="fs-6 fw-semibold mb-1 text-black">{{ strToUpper($categoryName) }}</h3>
                      <div class="d-flex justify-content-center align-items-center gap-2">
-                      <span class="badge border border-dark-subtle rounded-0 text-dark fw-semibold">{{ $package->package_price }}</span>
+                      <span class="badge border border-dark-subtle rounded-0 text-dark fw-semibold">
+                        @if($packageCategory->count() > 1)
+                         Start From
+                        @endif
+                        {{ $packageCategory->first()->package_price }}
+                      </span>
                     </div>
                     <div class="d-flex justify-content-center align-items-center gap-2">
                       
@@ -493,8 +498,8 @@ Home
               @endforeach
 
               {{-- LOOP 2: MODALS (di luar struktur grid) --}}
-              @foreach ($productPackage as $package)
-                  @include('product_package.modal', ['package' => $package])
+              @foreach ($productPackageCategories as $categoryName => $packageCategory)
+                  @include('product_package.modal', ['packageCategory' => $packageCategory])
               @endforeach
              
             </div>

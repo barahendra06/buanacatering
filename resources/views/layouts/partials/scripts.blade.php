@@ -36,18 +36,3 @@
             }
         });
     </script>  
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-73652975-7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-73652975-7');
-</script>
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-      Both of these plugins are recommended to enhance the
-      user experience. Slimscroll is required when using the
-      fixed layout. -->

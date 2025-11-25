@@ -58,7 +58,7 @@ class HomeController extends Controller
         $productCategories = ProductCategory::active()->orderBy('sequence', 'asc')->get();
 
         
-        $productPackage = ProductPackage::get();
+        $productPackageCategories = ProductPackage::get()->groupBy('packageCategory.name');
         $products = Product::with('productCategory', 'productVariants')->get();
 
         $mappingProduct = $products->groupBy(function ($product) {
@@ -68,7 +68,7 @@ class HomeController extends Controller
         $contact = Contact::first();
 
         $data['productCategories'] = $productCategories;
-        $data['productPackage'] = $productPackage;
+        $data['productPackageCategories'] = $productPackageCategories;
         $data['mappingProduct'] = $mappingProduct;
         $data['contact'] = $contact;
 
