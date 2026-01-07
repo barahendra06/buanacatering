@@ -80,6 +80,31 @@
                     <li><a class="child-tree" href="{{ route('package-index') }}">Product Package List</a></li>
                 </ul>
             </li>
+            <li class="">
+                <a class="child-tree" href="#"><i class='fa fa-dollar'></i> Order
+                <span class="pull-right-container">
+                </span>
+                    <i class="fa fa-angle-right pull-right"></i>
+                </a>
+                <ul class="treeview-menu" 
+                    @if(Route::current()->getName() == 'catering-order-list' ||
+                    Route::current()->getName() == 'catering-order-detail' ||
+                    Route::current()->getName() == 'catering-order'
+                    ) 
+                        style="display: block;"
+                    @else
+                        style="display: none;"
+                    @endif >
+                    <li><a class="child-tree" href="{{ route('catering-order-list') }}">Order List</a></li>
+                    <li><a class="child-tree" href="{{ route('catering-order') }}">Create Order</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="child-tree" href="{{ route('catering-sales-report') }}"><i class='fa fa-book'></i> Sales Report
+                <span class="pull-right-container">
+                </span>
+                </a>
+            </li>
             @endcan
         </ul>
     </section>

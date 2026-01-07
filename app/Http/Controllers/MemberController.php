@@ -341,8 +341,7 @@ class MemberController extends Controller
 
         $poin = 0;
         
-        $totalProductCategories = ProductCategory
-::active()->get()->count();
+        $totalProductCategories = ProductCategory::active()->get()->count();
         $totalProducts = Product::active()->get()->count();
         $totalProductPackages = ProductPackage::active()->get()->count();
 

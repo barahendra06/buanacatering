@@ -27,6 +27,11 @@ class EventServiceProvider extends ServiceProvider
         'eloquent.saved: App\Notification' => [
             'App\Listeners\CacheListener@onNotificationSaved',
         ],
+
+        // ---------------------- CATERING ORDER -----------------------
+        'App\Events\CateringOrder\CateringOrderLocked' => [
+            'App\Listeners\CateringShoppingCartListener@onCateringOrderLocked',
+        ],
     ];
 
     /**

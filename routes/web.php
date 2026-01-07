@@ -90,7 +90,26 @@ Route::group(['prefix' => 'product-category', 'middleware' => 'auth'], function 
     Route::get('edit/{id}', 'ProductCategoryController@edit')->name('product-category-edit');
     Route::post('update/{id}', 'ProductCategoryController@update')->name('product-category-update');
     Route::get('delete/{id}', 'ProductCategoryController@delete')->name('product-category-delete');
-    
+});
+
+Route::group(['prefix' => 'order', 'middleware' => 'auth'], function () {
+    Route::get('create', 'OrderController@create')->name('catering-order');
+    Route::post('store', 'OrderController@store')->name('catering-store-order');
+    Route::get('list', 'OrderController@index')->name('catering-order-list');
+    Route::get('detail/{id}', 'OrderController@detail')->name('catering-order-detail');
+    Route::get('cancel-order/{id}', 'OrderController@orderCancel')->name('catering-cancel-order');
+    Route::get('complete-order/{id}', 'OrderController@orderComplete')->name('catering-complete-order');
+    Route::get('delete-order/{id}', 'OrderController@orderDelete')->name('catering-delete-order');
+    // Route::get('invoice/print/{id}', 'OrderController@print')->name('catering-invoice-print');
+    // Route::post('invoice/sendmail/{id}', 'OrderController@sendMail')->name('catering-invoice-send-mail');
+
+    Route::get('get-store-product-variant-ajax', 'OrderController@getStoreProductVariantAjax')->name('get-store-product-variant-ajax');
+    Route::get('get-store-product-size-ajax', 'OrderController@getStoreProductSizeAjax')->name('get-store-product-size-ajax');
+    Route::get('add-product-to-cart-ajax', 'OrderController@addProductToCartAjax')->name('add-product-to-cart-ajax');
+    Route::get('get-shopping-cart-ajax', 'OrderController@getStoreShoppingCartAjax')->name('get-shopping-cart-ajax');
+    Route::get('remove-item-shopping-cart-ajax', 'OrderController@removeItemShoppingCartAjax')->name('remove-item-shopping-cart-ajax');
+
+    Route::get('sales-report', 'OrderController@indexSalesReport')->name('catering-sales-report');
 });
 
 //------------------- MEMBER ROUTES -----------------------------------------------------
