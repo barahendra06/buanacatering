@@ -112,6 +112,12 @@ Route::group(['prefix' => 'order', 'middleware' => 'auth'], function () {
     Route::get('sales-report', 'OrderController@indexSalesReport')->name('catering-sales-report');
 });
 
+Route::group(['prefix' => 'review'], function () {
+    Route::get('index', 'ReviewController@index')->name('catering-review-index');
+    Route::post('store', 'ReviewController@store')->name('catering-review-store');
+});
+
+
 //------------------- MEMBER ROUTES -----------------------------------------------------
 // show member profile pop up
 Route::get('profile/public/{id}', 'MemberController@publicProfile')->where('id', '[0-9]+')->name('member-public-profile');

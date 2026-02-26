@@ -40,6 +40,7 @@ use Illuminate\Support\Facades\Input;
 use App\ProductCategory;
 use App\Product;
 use App\ProductPackage;
+use App\CateringReview;
 
 /**
  * Class HomeController
@@ -67,6 +68,9 @@ class HomeController extends Controller
 
         $contact = Contact::first();
 
+        $reviews = CateringReview::with('product', 'productPackage');
+
+        $data['reviews'] = $reviews->orderBy('rating', 'desc')->orderBy('created_at', 'desc')->get();
         $data['productCategories'] = $productCategories;
         $data['productPackageCategories'] = $productPackageCategories;
         $data['mappingProduct'] = $mappingProduct;

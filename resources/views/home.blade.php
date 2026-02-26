@@ -83,6 +83,35 @@ Home
   line-height: 1.3rem;
   min-height: 4rem; /* agar semua card sejajar */
 }
+
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse; /* Membalikkan tampilan agar 1 di kiri */
+  justify-content: flex-end;
+}
+
+.star-rating input {
+  display: none; /* Sembunyikan radio button asli */
+}
+
+.star-rating label {
+  font-size: 3rem;
+  color: #ccc; /* Warna bintang kosong */
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Saat di-hover atau dipilih, beri warna kuning */
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+  color: #f5b301; /* Warna kuning emas */
+}
+
+/* Efek sedikit membesar saat di-hover */
+.star-rating label:hover {
+  transform: scale(1.1);
+}
 </style>
 @endpush
 
@@ -605,6 +634,121 @@ Home
       </div>
     </section>
     @endforeach
+
+    <section id="reviews-section" class="products-carousel ">
+      <div class="container-lg">
+        <div class="bg-secondary text-light py-5 my-5" style="background: url('images/banner-1.jpg') no-repeat; background-size: cover;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 p-3">
+                <div class="container-lg overflow-hidden py-1">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="section-header d-flex flex-wrap justify-content-between my-4">
+                        <h2 class="section-title text-black">CUSTOMER REVIEWS</h2>
+                        <div class="d-flex align-items-center">
+                          <div class="swiper-buttons">
+                            <button class="swiper-prev products-carousel-prev btn btn-primary">❮</button>
+                            <button class="swiper-next products-carousel-next btn btn-primary">❯</button>
+                          </div>  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="swiper">
+                        <div class="swiper-wrapper">
+                          @if($reviews->count())
+                            @foreach ($reviews as $review)
+                              <div class="product-item swiper-slide" style="width:250px!important; margin: 0 10px;">
+                                <h3 style="min-height:3rem!important" class="fs-6 fw-semibold text-black product-desc">
+                                  @for($i = 0; $i < $review->rating; $i++)
+                                  <span class="text-warning">★</span>
+                                  @endfor 
+                                  ({{ $review->rating }})
+                                </h3>
+                                <div class="justify-content-start align-items-center">
+                                  <p class="text-dark"><b>{{ $review->name ?? '' }}</b></p>
+                                  <p class="text-dark">{{ $review->review ?? '' }}</p>
+                                </div>
+                              </div>
+                            @endforeach
+                          @endif
+                        </div>
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h1>Real Feedback, Real Flavors</h1>
+                      <h5 class="text-dark"><i>
+                        We take pride in every bite we serve. <br> 
+                        Join thousands of satisfied clients who have made us their top choice for daily nutrition and events.
+                      </i></h5>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card">
+                        <div class="card-body">
+                          @if(session('success'))
+                              <div style="padding: 15px; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 5px; margin-bottom: 20px;">
+                                  {{ session('success') }}
+                              </div>
+                          @endif
+                          <form action="{{ route('catering-review-store') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                              <div class="col-md-12">
+                                <label class="text-dark" for=""><b>Rating</b></label>
+                                <div class="star-rating">
+                                  <input type="radio" id="star5" name="rating" value="5" />
+                                  <label for="star5" title="Sempurna">★</label>
+                                  
+                                  <input type="radio" id="star4" name="rating" value="4" />
+                                  <label for="star4" title="Bagus">★</label>
+                                  
+                                  <input type="radio" id="star3" name="rating" value="3" />
+                                  <label for="star3" title="Cukup">★</label>
+                                  
+                                  <input type="radio" id="star2" name="rating" value="2" />
+                                  <label for="star2" title="Buruk">★</label>
+                                  
+                                  <input type="radio" id="star1" name="rating" value="1" />
+                                  <label for="star1" title="Sangat Buruk">★</label>
+                                </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                <label class="text-dark" for=""><b>Name</b></label>
+                                <input class="form-control" type="text" name="name" placeholder="Name" style="border: gold solid 1px;">
+                              </div>
+
+                              <div class="col-md-12">
+                                <label class="text-dark" for=""><b>Review</b></label>
+                                <textarea class="form-control" name="review" style="border: gold solid 1px;" row="3" placeholder="Write your review here.."></textarea>
+                              </div>
+
+                              <br>
+                              <br>
+                              <div class="col-md-12 text-right justify-content-end float-right">
+                                <br>
+                                <button class="btn btn-success float-right" type="submit">Submit Review</button>
+                              </div>
+                          </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
     <section id="contact_us_section">
       <div class="container-lg">
         <div class="bg-secondary text-light py-5 my-5" style="background: url('images/banner-newsletter.jpg') no-repeat; background-size: cover;">
